@@ -1,5 +1,4 @@
-# Create new storage bucket in the US multi-region
-# with coldline storage
+# Create new storage bucket in the EU multi-region
 resource "random_id" "bucket_suffix" {
   byte_length = 2
 }
@@ -18,6 +17,7 @@ resource "google_service_account" "service_account" {
   account_id = "bs-private-access"
 }
 
+# Grant Access to view objects in the bucket
 resource "google_storage_bucket_iam_binding" "binding" {    
   bucket = google_storage_bucket.static.name
   role   = "roles/storage.objectViewer"

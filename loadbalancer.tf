@@ -55,6 +55,8 @@ resource "google_compute_url_map" "url_map" {
   name            = "${var.name}-lb"
   default_service = google_compute_backend_service.backend_service.id
 
+
+# to be improved using variable with optional and default values  
   host_rule {
     hosts        = ["site2.poc.poc.com"]
     path_matcher = "site2matcher"
